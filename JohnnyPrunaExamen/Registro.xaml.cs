@@ -18,35 +18,47 @@ namespace JohnnyPrunaExamen
             lblUsuario.Text = usuario;
         }
 
-        private void btnSiguiente_Clicked(object sender, EventArgs e)
+        private void btnCalcular_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Resumen());
-        }
-
-        private void btnPagoMensual_Clicked(object sender, EventArgs e)
-        {
-            txtMontoInicial.Text = OperacionFin.ToString();
-
-            if (OperacionFin >= 7 && OperacionFin <= 10)
-            { // Si la condicion se cumple 
-
-                // mostramos este mensaje
-                txtVerificar.Text = ("Aprobado");
-                DisplayAlert("Felicitaciones APROBADO", " Su nota final es:" + " " + OperacionFin, "cerrar");
-
-            }
             try
             {
-                double montoInicial = Convert.ToDouble(txtMontoInicial.Text);
+                if (Convert.ToDouble(txtMonto.Text) < 1)
+                { 
+                    DisplayAlert("Error", "Ingrese un monto mayor o igual 1", "Cerrar");
+                }
+                if (Convert.ToDouble(txtMonto.Text) > 3999)
+                {
+                    DisplayAlert("Error", "Inngrese un monto menor o igual a 4000", "Cerrar");
+                }
 
-                double valor = 4000-montoInicial/200;
-                DisplayAlert("Pago mensual", valor.ToString(), "Cerrar");
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+           
+            try
+            {
+                double montoInicial = Convert.ToDouble(txtMonto.Text);
+                double Pago = ((4000 - montoInicial) / 5) + (4000*0.05);
+                double pagoT = Pago * 5 + montoInicial;
+                txtPagoT.Text = pagoT.ToString();
+                txtPago.Text = Pago.ToString();
+
             }
             catch (Exception ex)
             {
 
-                DisplayAlert("Alerta", ex.Message, "Cerrar");
+                DisplayAlert("Alerta", ex.ToString(), "Cerrar");
+
             }
         }
+
+        private void btnGuardar_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Resumen(lblUsuario.Text, txtNombre.Text, txtPago.Text));
+        }
+
+
     }
 }

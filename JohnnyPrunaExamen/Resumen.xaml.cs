@@ -12,14 +12,17 @@ namespace JohnnyPrunaExamen
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Resumen : ContentPage
     {
-        public Resumen()
+        public Resumen(string usuario, string nombre, string total)
         {
             InitializeComponent();
+            lblUsuario.Text = usuario;
+            txtNombre.Text = nombre;
+            txtTotal.Text = total;
         }
 
-        private void btnSiguiente_Clicked(object sender, EventArgs e)
+        private void btnAcerca_Clicked(object sender, EventArgs e)
         {
-
+            DisplayAlert("Realizado por ", "Johnny Santiago Pruna Pruna", "ACEPTAR");
         }
     }
 }
