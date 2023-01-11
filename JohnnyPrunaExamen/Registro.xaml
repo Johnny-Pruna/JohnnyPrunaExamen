@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JohnnyPrunaExamen.Registro">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="VENTANA DE REGISTRO" FontSize="20" HorizontalTextAlignment="Center"/>
+            <Label x:Name="lblUsuario" HorizontalTextAlignment="End" FontSize="16"/>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Nombre" FontSize="18" Grid.Row="0" Grid.Column="0"/>
+                <Entry x:Name="txtNombre" Placeholder="Ingese su nombre" Grid.Row="0" Grid.Column="1"  />
+                <Label Text="Monto inicial" FontSize="18" Grid.Row="1" Grid.Column="0"/>
+                <Entry x:Name="txtMontoInicial" Placeholder="Contraseña"  Grid.Row="1" Grid.Column="1"/>
+                <Label Text="Pago Mensual" FontSize="18" Grid.Row="2" Grid.Column="0"/>
+                <Entry x:Name="txtPagoMensual" Placeholder="Ingrese el Pago Mensual" Grid.Row="2" Grid.Column="1"/>
+
+
+            </Grid>
+
+            <Button x:Name="btnPagoMensual" Text=" Calcular Pago Mensual" Clicked="btnPagoMensual_Clicked"/>
+
+            <Button x:Name="btnSiguiente" Text="Guardar Informacion" Clicked="btnSiguiente_Clicked"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
